@@ -5,7 +5,7 @@ import * as Realm from "realm-web";
 import { login } from "@/app/auth/login/LoginForm";
 
 const app = new Realm.App({ id: process.env.NEXT_PUBLIC_REALM_APP_ID as string });
-const redirectUrl = "http://localhost:5173";
+const redirectUrl = "https://gospel-companion-fe.vercel.app";
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
