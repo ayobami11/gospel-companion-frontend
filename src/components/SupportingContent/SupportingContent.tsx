@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { parseSupportingContentItem } from "./SupportingContentParser";
 
 import styles from "./SupportingContent.module.css";
@@ -16,12 +18,19 @@ export const SupportingContent = ({ supportingContent }: Props) => {
     const imageItems = !Array.isArray(supportingContent) ? supportingContent?.images : [];
     return (
         <ul className={styles.supportingContentNavList}>
-            {textItems.map(c => {
+            {textItems.map((c, i) => {
                 const parsed = parseSupportingContentItem(c);
-                return <TextSupportingContent {...parsed} />;
+                return <TextSupportingContent key={i} {...parsed} />;
             })}
-            {imageItems?.map(i => {
-                return <img className={styles.supportingContentItemImage} src={i.url} />;
+            {imageItems?.map((item, i) => {
+                return (
+                    <Image
+                        key={i}
+                        className={styles.supportingContentItemImage}
+                        src={item.url}
+                        alt=""
+                    />
+                )
             })}
         </ul>
     );
