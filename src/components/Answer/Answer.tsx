@@ -1,5 +1,8 @@
 import { useMemo } from "react";
-import { Stack, IconButton } from "@fluentui/react";
+import {
+  Stack,
+  // IconButton
+} from "@fluentui/react";
 import DOMPurify from "dompurify";
 
 import styles from "./Answer.module.css";
@@ -24,15 +27,16 @@ export const Answer = ({
   isSelected,
   isStreaming,
   onCitationClicked,
-  onThoughtProcessClicked,
-  onSupportingContentClicked,
-  onFollowupQuestionClicked,
-  showFollowupQuestions,
+  // onThoughtProcessClicked,
+  // onSupportingContentClicked,
+  // onFollowupQuestionClicked,
+  // showFollowupQuestions,
 }: Props) => {
   //const followupQuestions = answer.choices[0].context.followup_questions;
   const messageContent = answer.message; //answer.choices[0].message.content;
   const parsedAnswer = useMemo(
     () => parseAnswerToHtml(messageContent, isStreaming, onCitationClicked),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [answer]
   );
 
