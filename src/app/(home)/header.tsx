@@ -1,6 +1,6 @@
 import { ModeToggle } from "@/app/(home)/mode-toggle";
 import { KnowledgeBase } from "./knowledge-base";
-import { FormType } from "../page";
+import { type FormType } from "@/app/(home)/message-form";
 
 
 export const Header = ({ form }: FormType) => {
