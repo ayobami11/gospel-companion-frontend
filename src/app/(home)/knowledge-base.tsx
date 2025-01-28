@@ -14,8 +14,7 @@ import {
     FormMessage,
 } from "@/components/ui/form";
 
-import { type FormType } from "@/app/page";
-
+import { FormType } from "@/app/(home)/message-form";
 
 export const KnowledgeBase = ({ form }: FormType) => {
 

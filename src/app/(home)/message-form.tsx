@@ -1,6 +1,7 @@
 "use client"
 
 import { z } from "zod";
+import { type UseFormReturn } from "react-hook-form";
 
 import {
     Form,
@@ -12,9 +13,25 @@ import {
 
 import { AutosizeTextarea } from "@/components/ui/autosize-textarea";
 
-import { messageFormSchema, type FormType } from "@/app/page";
-
 import { Send } from "lucide-react";
+
+export const messageFormSchema = z.object({
+  knowledgeBase: z.enum(["elementary", "junior", "senior"], {
+    message: "Please select a valid knowledge base.",
+  }),
+  message: z.string().min(1, {
+    message: "Message is required.",
+  }).max(1000, {
+    message: "Message cannot exceed 1000 characters."
+  }).trim()
+}).required();
+
+export type FormType = {
+    form: UseFormReturn<{
+        knowledgeBase: "elementary" | "junior" | "senior",
+        message: string
+    }, unknown, undefined>
+}
 
 
 export const MessageForm = ({ form }: FormType) => {
